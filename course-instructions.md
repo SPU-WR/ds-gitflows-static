@@ -27,13 +27,13 @@ The first step in our workflow when working on a new project is to fork the cano
 ----
 **Action:** Fork this repo!
 
-1. Open the main repository page, `https://github.com/padilla410/ds-gitflows-static-[username]`.
+1. Open the main repository page, `https://github.com/SPU-WR/ds-gitflows-static-[username]`.
 2. Click the "Fork" button at the top right (see image below).
 
 ![image](https://user-images.githubusercontent.com/13220910/81218905-94147a80-8fa4-11ea-9685-09ae5b335bdf.png)
 
 3. If prompted with `Where should we fork ...`, choose your user account.
-4. When it is complete, you should be on a new webpage. Instead of `padilla410/ds-gitflows-static-[username]`, you will now see `[username]/ds-gitflows-static-[username]` at the top.
+4. When it is complete, you should be on a new webpage. Instead of `/ds-gitflows-static-[username]`, you will now see `[username]/ds-gitflows-static-[username]` at the top.
 
 Congratulations! You've made your own copy of the main repository.
 
@@ -50,7 +50,7 @@ The next step in our workflow is to clone your fork. This creates a local copy o
 **Action:** Clone this repo!
 
 1. Open the GitHub page for your fork, e.g. `https://github.com/[username]/ds-gitflows-static-[username]`. *A navigation note*: from your fork, you can easily navigate back to the canonical repository by clicking the link next to "forked from" at the top, just below your forked repository name. From the canonical repo page, you can get back to your fork by clicking the fork button on the canonical repo and choosing your existing fork from the list.
-2. Click the `Clone or download` button. Again, make sure you are ***on your fork***. This means that you see `[username]/ds-gitflows-static-[username]` at the top of the page with `forked from padilla410/ds-gitflows-static-[username]` underneath.
+2. Click the `Clone or download` button. Again, make sure you are ***on your fork***. This means that you see `[username]/ds-gitflows-static-[username]` at the top of the page with `forked from /ds-gitflows-static-[username]` underneath.
 3. Copy the SSH address, not the HTTPS one (see image below). We should have already set up your SSH keys, but if not, follow [these instructions to generate an SSH key](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [these instructions to add the SSH key to your GitHub account](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account). When you come back to the page, you should have the SSH option.
 
 ![image](https://user-images.githubusercontent.com/13220910/81214134-01241200-8f9d-11ea-9acc-994e0ccf368f.png)
@@ -76,11 +76,11 @@ What we need to do now is link the canonical repository to your local copy. This
 ----
 **Action:** Link your cloned repository to the upstream remote.
 
-1. Open the GitHub page for the main (or canonical) repository, `https://github.com/padilla410/ds-gitflows-static-[username]`
+1. Open the GitHub page for the main (or canonical) repository, `https://github.com/SPU-WR/ds-gitflows-static-[username]`
 2. Just like in the previous step, click `Clone or download`
 3. Copy the SSH URL (not the HTTPS URL)
 4. Open Git Bash to your project's working directory.  
-5. Type `git remote add upstream [insert URL]`, e.g. `git remote add upstream https://github.com/padilla410/ds-gitflows-static-[username]`. *Reminder:* you cannot CTRL+V to paste into Git Bash. Right click and choose paste instead.
+5. Type `git remote add upstream [insert URL]`, e.g. `git remote add upstream https://github.com/SPU-WR/ds-gitflows-static-[username]`. *Reminder:* you cannot CTRL+V to paste into Git Bash. Right click and choose paste instead.
 6. Hit enter.
 7. Now, when you run `git remote -v` you should see a list with both an `upstream` remote and an `origin` remote.
 
@@ -101,12 +101,12 @@ We will be using the `dryville_story.md` file to illustrate changes to a reposit
 **Action:** Add text to the story and commit your change.
 
 1. Before we make any changes, let's check that we are starting from a clean slate. Run `git status` in Git Bash in your project directory. You should see a message that says "nothing to commit". This means that there are no changes on your local copy and it exactly matches the content on your remote fork (the `origin` repo). This is good!
-1. Now, open the `dryville_story.md` file on your computer. Any text editor will do, such as [Notepad++](https://notepad-plus-plus.org/downloads/). Currently, there is a title (denoted by `#`) and two sub-headers (denoted by `##`) with text. You can also see the syntax for hyperlinks, `[text that appears](link/to/the/website)`. To see how this syntax is rendered on GitHub, open the `dryville_story.md` file on GitHub by going to the main repo (`https://github.com/padilla410/ds-gitflows-static-[username]`) and clicking the file name.
+1. Now, open the `dryville_story.md` file on your computer. Any text editor will do, such as [Notepad++](https://notepad-plus-plus.org/downloads/). Currently, there is a title (denoted by `#`) and two sub-headers (denoted by `##`) with text. You can also see the syntax for hyperlinks, `[text that appears](link/to/the/website)`. To see how this syntax is rendered on GitHub, open the `dryville_story.md` file on GitHub by going to the main repo (`https://github.com/SPU-WR/ds-gitflows-static-[username]`) and clicking the file name.
 1. Now, we will add the next section of the story (we are recreating the story available [here on the USGS Water Science School](https://www.usgs.gov/special-topic/water-science-school/science/story-water-dryville)). Open that link. The next section in the story that we don't have in our file yet is called "Getting Water to Your Homes". Add the title (use `##`), the body text, and the appropriate link for the words "over 8 pounds a gallon" to the `dryville_story.md` file locally. Save the file.
 1. Now, we have made a change in our local repo. If you run `git status` in Git Bash, you should see the words "modified: dryville_story.md". This means that Git detects a new change. At this point, you could run `git diff` to visually see the changes you made: red = original, green = changed (if you do this and see a `:` at the bottom of your bash window, type `q` to get out of the diff view before proceeding). You will also see the words "no changes added to commit". This is because we have not told Git to record these changes; we have not "staged" them. 
 1. We now need to stage these changes so that they can be included in our commit. To stage our changes, run `git add dryville_story.md`. Now when you run `git status`, you see that the "modified: dryville_story.md" change is listed under "Changes to be committed". We are now ready to make a commit.
 1. To make a commit, run `git commit -m "[insert your message here]"`. For this change, we will run `git commit -m "add getting-water-to-your-homes section"`. Any change that was listed under the "Changes to be committed" section when we ran `git status` will be included in this commit.
-1. Run `git status` again. We should be back to where we started. There is "nothing to commit" because we don't have any additional changes to the repository content - we already committed our only changes. However, you will also see that it says "Your branch is ahead of 'origin/master' by 1 commit". We'll talk about that later.
+1. Run `git status` again. We should be back to where we started. There is "nothing to commit" because we don't have any additional changes to the repository content - we already committed our only changes. However, you will also see that it says "Your branch is ahead of 'origin/main' by 1 commit". We'll talk about that later.
 
 You have now made a commit and recorded your changes with Git! Please move on to the next section.
 
@@ -122,12 +122,12 @@ Practice makes perfect - let's make a second commit to our local repo.
 ----
 **Action:** Add the next section's text and commit this change.
 
-1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/master' by 1 commit". 
+1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/main' by 1 commit". 
 1. Open the `dryville_story.md` file on your computer and add the next section of [the story](https://www.usgs.gov/special-topic/water-science-school/science/story-water-dryville), which is called "Dryville's First Water Works". Keep the same formatting as before (`##` for the title, `[inline text](url)` for hyperlinks). Save the file.
-1. We have now made a second change in our local repo. If you run `git status` in Git Bash, you should see the words "modified: dryville_story.md". This means that Git detects your change. You will also see the words "no changes added to commit". This is because we still need to stage our changes. Note that you will still see "Your branch is ahead of 'origin/master' by 1 commit" - more on that later.
+1. We have now made a second change in our local repo. If you run `git status` in Git Bash, you should see the words "modified: dryville_story.md". This means that Git detects your change. You will also see the words "no changes added to commit". This is because we still need to stage our changes. Note that you will still see "Your branch is ahead of 'origin/main' by 1 commit" - more on that later.
 1. Run `git add dryville_story.md` to stage these changes so that they can be included in our next commit. Now when you run `git status`, you see that the "modified: dryville_story.md" change is listed under "Changes to be committed". We are now ready to make a commit.
 1. Run `git commit -m "add dryvilles-first-water-works section"` to make a second commit.
-1. Run `git status` again. We should be back to where we started. There is "nothing to commit" because we don't have any additional changes to the repository content - we already committed our changes. However, you will now see that it says "Your branch is ahead of 'origin/master' by 2 commits". We'll talk about that next.
+1. Run `git status` again. We should be back to where we started. There is "nothing to commit" because we don't have any additional changes to the repository content - we already committed our changes. However, you will now see that it says "Your branch is ahead of 'origin/main' by 2 commits". We'll talk about that next.
 
 You have now made two commits and recorded your changes with Git! Please move on to the next section.
 
@@ -144,8 +144,8 @@ At this point, we have made our file changes and are satisfied with the state of
 ----
 **Action:** Push your changes to your GitHub fork. 
 
-1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/master' by 2 commits". This means that our local version has 2 new changes that do not appear in our remote fork (called the `origin` because our local version *originated* from it). 
-1. To get our local changes to appear on our remote fork, we need to "push" them there. To do so, run `git push`. By default, it will push changes up to the `origin` remote `master` branch (we aren't using branching just yet, so everything is the `master` branch). If you want to be more explicit, you can run `git push [remote name] [branch name]`. For example, `git push origin master` will do the same as `git push`.
+1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/main' by 2 commits". This means that our local version has 2 new changes that do not appear in our remote fork (called the `origin` because our local version *originated* from it). 
+1. To get our local changes to appear on our remote fork, we need to "push" them there. To do so, run `git push`. By default, it will push changes up to the `origin` remote `main` branch (we aren't using branching just yet, so everything is the `main` branch). If you want to be more explicit, you can run `git push [remote name] [branch name]`. For example, `git push origin main` will do the same as `git push`.
 1. After you run this successfully, you will see "To github.com:[username]/ds-gitflows-template.git" near the bottom. It is telling you where those changes went, which is to your remote fork. Yay!
 1. Go to your fork's webpage (`https://github.com/[username]/ds-gitflows-[username]`) and click on the `commits` button (see image below). You should see your two commit messages appear there.
 
@@ -172,7 +172,7 @@ For now, we will discuss how to open a pull request.
 
 ![image](https://user-images.githubusercontent.com/13220910/81233801-17da6100-8fbd-11ea-9a84-07c9a9a3e705.png)
 
-2. Before your pull request is actually created, you should verify that you are requesting the correct changes be merged with the correct repository. For now, we are not working with branches, so don't worry about the fields that say "master". However, you should verify that the `base repository` is set to the project canonical repo (`padilla410/ds-gitflows-static-[username]` in this case) and that the `head repository` is set to your fork (`[username]/ds-gitflows-[username]`). You also need to verify the commits lists. It should list the two that you just created.
+2. Before your pull request is actually created, you should verify that you are requesting the correct changes be merged with the correct repository. For now, we are not working with branches, so don't worry about the fields that say "main". However, you should verify that the `base repository` is set to the project canonical repo (`/ds-gitflows-static-[username]` in this case) and that the `head repository` is set to your fork (`[username]/ds-gitflows-[username]`). You also need to verify the commits lists. It should list the two that you just created.
 3. When you have checked those things, you can click the green "Create pull request" button.
 4. You still haven't made the pull request yet - one more step. You now need to title your pull request and add a description about your changes. I believe this was discussed earlier but if you need a refresher, [here is an article about some common best practices when it comes to PRs](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests).
 5. Once you add a title and description, click the cog next to the `Reviewers` feature on the right bar and select your course contact as the reviewer from the drop-down menu. If you do not have the option to add a reviewer, do step 6 and then add the reviewer after.
@@ -196,9 +196,9 @@ Merging a PR creates a commit on the canonical repository. Even though the most 
 **Action:** Close the loop. 
 
 1. Open Git Bash and make sure you are in your project's directory (reminder: use `cd`).
-1. Pull down changes from the canonical repository (aka the "upstream" remote) by running `git pull upstream master`.
-1. We now have changes locally that do not appear on our fork (aka the "origin" remote). So if we run `git status`, we get the message "Your branch is ahead of 'origin/master' by X commits".
-1. Just like we did earlier, we can push our local changes to our fork by running `git push` (or `git push origin master` to be explicit).
+1. Pull down changes from the canonical repository (aka the "upstream" remote) by running `git pull upstream main`.
+1. We now have changes locally that do not appear on our fork (aka the "origin" remote). So if we run `git status`, we get the message "Your branch is ahead of 'origin/main' by X commits".
+1. Just like we did earlier, we can push our local changes to our fork by running `git push` (or `git push origin main` to be explicit).
 1. Now when you run `git status`, you should see that everything is up-to-date and there is nothing to commit. 
 
 You have successfully closed the loop after your PR was merged! Please move on to the next section.
@@ -217,10 +217,10 @@ Scenario: After your content was merged, a collaborator tells you that they adde
 **Action:** Pull down a collaborator's contributions to the canonical repository. 
 
 1. First, verify that you did indeed close the loop after merging your PR (see previous section).
-1. Now, visit that canonical repository on GitHub and look at the commits (go to `https://github.com/padilla410/ds-gitflows-static-[username]` and click on "commits"). You should see a new commit that was not created by you. 
+1. Now, visit that canonical repository on GitHub and look at the commits (go to `https://github.com/SPU-WR/ds-gitflows-static-[username]` and click on "commits"). You should see a new commit that was not created by you. 
 1. Click on the commit name to see what changes were made. Looks like your collaborator added the next section of the story! 
 1. Our goal is to continue this work and add another section but first, we need to get our collaborator's changes locally. Before pulling down changes, verify that you don't have any uncommitted changes locally. Run `git status` and look for the phrase, "nothing to commit".
-1. Next, pull their changes down using `git pull upstream master`. Remember, the "canonical repository" is referred to as the "upstream" remote in git commands.
+1. Next, pull their changes down using `git pull upstream main`. Remember, the "canonical repository" is referred to as the "upstream" remote in git commands.
 1. Now when you open your `dryville_story.md` file locally, you should see the "Be Gone, Dirty Water" section is the last in the file. 
 
 Great! You successfully pulled down contributions that someone else on your team made to the repository. Next, we will add another section. Please move onto the next section.
@@ -238,16 +238,16 @@ Time to add on to this story. We've done this a couple times now, so the edit-sa
 ----
 **Action:** Add text for the next two sections and commit those changes.
 
-1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/master' by 1 commit" (that one commit is the one from your collaborator that has not yet been pushed to your fork). 
+1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/main' by 1 commit" (that one commit is the one from your collaborator that has not yet been pushed to your fork). 
 1. Open the `dryville_story.md` file on your computer and add the next section of [the story](https://www.usgs.gov/special-topic/water-science-school/science/story-water-dryville), which is called "Your First Flood". Keep the same formatting as before (`##` for the title, `[inline text](url)` for hyperlinks). Save the file.
-1. If you run `git status` in Git Bash, you should see the words "modified: dryville_story.md". This means that Git detects your change. You will also see the words "no changes added to commit". This is because we still need to stage our changes. Note that you will still see "Your branch is ahead of 'origin/master' by 1 commit" - we still haven't pushed since we pulled down our collaborator's changes.
+1. If you run `git status` in Git Bash, you should see the words "modified: dryville_story.md". This means that Git detects your change. You will also see the words "no changes added to commit". This is because we still need to stage our changes. Note that you will still see "Your branch is ahead of 'origin/main' by 1 commit" - we still haven't pushed since we pulled down our collaborator's changes.
 1. Run `git add dryville_story.md` to stage these changes so that they can be included in our next commit. Now when you run `git status`, you see that the "modified: dryville_story.md" change is listed under "Changes to be committed". We are now ready to make a commit.
 1. Run `git commit -m "add your-first-flood section"` to make a commit.
-1. Run `git status` again. We should be back to where we started. There is "nothing to commit" because we don't have any additional changes to the repository content - we already committed our changes. However, you will now see that it says "Your branch is ahead of 'origin/master' by 2 commits".
+1. Run `git status` again. We should be back to where we started. There is "nothing to commit" because we don't have any additional changes to the repository content - we already committed our changes. However, you will now see that it says "Your branch is ahead of 'origin/main' by 2 commits".
 1. Now repeat for "Storing Water for a Rainy Day". Copy and paste text from [the complete story](https://www.usgs.gov/special-topic/water-science-school/science/story-water-dryville). Keep the same formatting as before (`##` for the title, `[inline text](url)` for hyperlinks). Save the file.
 1. Run `git add dryville_story.md` to stage these changes.
 1. Run `git commit -m "add storing-water-for-a-rainy-day section"` to make a commit.
-1. Now `git status` shows that we are ahead of `origin/master` by 3 commits.
+1. Now `git status` shows that we are ahead of `origin/main` by 3 commits.
 
 You have now made two new commits. Please move on to the next section.
 
@@ -266,7 +266,7 @@ In the last section, we made two commits that added two new sections of the stor
 
 1. First, verify that you did indeed complete the previous section.
 1. Before pulling down changes, verify that you don't have any uncommitted changes locally. Run `git status` and look for the phrase, "nothing to commit".
-1. Next, pull their changes down using `git pull upstream master`. 
+1. Next, pull their changes down using `git pull upstream main`. 
 1. Uh oh, there seems to be an issue. When we pulled down those changes, the message "CONFLICT (content): Merge conflict in dryville_story.md" appeared. We must have been editing the same line of the file as our collaborator.
 
 Your first merge conflict! Everything will be OK, promise :) Please move on to the next section.
@@ -313,7 +313,7 @@ You start thinking... a reservoir (you can call it a lake) above town could real
 8. Now you are left with the merge conflict symbols and the correct version of the "Storing Water for a Rainy Day" section. Delete all of the symbols related to the merge conflict (`<<<<<<< HEAD`, `=======`, and `>>>>>>> [random letters/numbers]`). Now, you should be back to where you started (which happens in merge conflict resolution sometimes).
 9. Save the file.
 10. The last step for resolving a merge confict is to commit your changes. Follow the same pattern as before. Running `git status` will show you that you have an unresolved merge conflict. Just as before, run `git add dryville_story.md` to stage your changed file. Then commit by running `git commit -m "resolve merge conflict"`. 
-11. Now, when you run `git status` you will see that you don't have any changes to commit (but your branch still ahead of origin/master - see next section).
+11. Now, when you run `git status` you will see that you don't have any changes to commit (but your branch still ahead of origin/main - see next section).
 
 You successfully resolved a conflict! Please move on to the next section.
 
@@ -330,11 +330,11 @@ We are now ready to push our local changes (including the resolved merge conflic
 ----
 **Action:** Push your changes to your GitHub fork and open a PR. 
 
-1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/master' by X commits". Our local version has new changes that do not appear in our fork (aka the remote `origin` because our local version *originated* from it). 
-1. Just as before, we need to "push" our local changes to our remote fork. Run `git push origin master` to do so. 
+1. If you run `git status` in Git Bash  right now, you should see a message that says "nothing to commit" and also "Your branch is ahead of 'origin/main' by X commits". Our local version has new changes that do not appear in our fork (aka the remote `origin` because our local version *originated* from it). 
+1. Just as before, we need to "push" our local changes to our remote fork. Run `git push origin main` to do so. 
 1. Go to **your fork's** webpage (`https://github.com/[username]/ds-gitflows-[username]`) and click on the `commits` button (see image below). You should see your new commit messages appear there.
 1. Now, click the "Code" tab to go back to your fork's home page. At the top, click the "New pull request button".
-1. Before your pull request is actually created, you need to verify that you are requesting the correct changes be merged with the correct repository. Remember, we are not working with branches, so don't worry about the fields that say "master". However, you should verify that the `base repository` is set to the project canonical repo (`padilla410/ds-gitflows-static-[username]`) and that the `head repository` is set to your fork (`[username]/ds-gitflows-[username]`).
+1. Before your pull request is actually created, you need to verify that you are requesting the correct changes be merged with the correct repository. Remember, we are not working with branches, so don't worry about the fields that say "main". However, you should verify that the `base repository` is set to the project canonical repo (`/ds-gitflows-static-[username]`) and that the `head repository` is set to your fork (`[username]/ds-gitflows-[username]`).
 1. After verifying, click the green "Create pull request" button.
 1. Add a title to your pull request and a description about your changes. 
 1. Once you add a title and description, click the cog next to the `Reviewers` feature on the right bar and select @lindsayplatt as the reviewer from the drop-down menu. If you do not have the option to add a reviewer, do step 9 and then add the reviewer after.
@@ -358,9 +358,9 @@ Merging a PR creates a commit on the canonical repository. Even though the most 
 **Action:** Close the loop. 
 
 1. Open Git Bash and make sure you are in your project's directory (reminder: use `cd`).
-1. Pull down changes from the canonical repository (aka the "upstream" remote) by running `git pull upstream master`.
-1. We now have changes locally that do not appear on our fork (aka the "origin" remote). So if we run `git status`, we get the message "Your branch is ahead of 'origin/master' by X commits".
-1. Just like we did earlier, we can push our local changes to our fork by running `git push` (or `git push origin master` to be explicit).
+1. Pull down changes from the canonical repository (aka the "upstream" remote) by running `git pull upstream main`.
+1. We now have changes locally that do not appear on our fork (aka the "origin" remote). So if we run `git status`, we get the message "Your branch is ahead of 'origin/main' by X commits".
+1. Just like we did earlier, we can push our local changes to our fork by running `git push` (or `git push origin main` to be explicit).
 1. Now when you run `git status`, you should see that everything is up-to-date and there is nothing to commit. 
 
 You have once again closed the loop after your PR was merged! Please move on to the next section.
@@ -382,12 +382,12 @@ The last topic we are going to cover in this tutorial is the `.gitignore` file. 
 1. Now in Git Bash, run `ls` to "list" the items in your current working directory. You should see the following: `dryville_story.md`, `README.md` and `wss-wu-dryville.jpg`. Note that the `.gitignore` file doesn't show up with `ls` because it is technically a "hidden" file (starts with a `.`).
 1. So, you've added a new file to your repository. Now, run `git status`. Git shows that `wss-wu-dryville.jpg` is an untracked file. We could leave it like that and just try to remember to not commit it, but that seems risky. The more foolproof way is to to add it to the `.gitignore` file.  
 1. Add `wss-wu-dryville.jpg` to the `.gitignore` file. Save the file.
-1. Now run `git status`. It no longer shows `wss-wu-dryville.jpg` as an untracked file, but instead shows that we have modified `.gitignore`. That is because this file is version controlled - whenever we change it, we push those changes to the master repository so that everyone uses the same one. 
+1. Now run `git status`. It no longer shows `wss-wu-dryville.jpg` as an untracked file, but instead shows that we have modified `.gitignore`. That is because this file is version controlled - whenever we change it, we push those changes to the main repository so that everyone uses the same one. 
 1. Now, commit your changes to `.gitignore` and push to your fork.  
 ```
 git add .gitignore
 git commit -m "add downloaded image to gitignore"
-git push origin master
+git push origin main
 ```
 8. Finally, create a pull request. Make sure to add your course contact as the reviewer of your PR. Reminder - you can look back at closed issues to follow along with past instructions by clicking "Issues" and then "Closed" on the GitHub page for the canonical repository.
 
@@ -424,7 +424,7 @@ Welcome to the end of the hands on tutorial with Git and GitHub! You have now be
 
 ### Moving your local commits to your fork
 
-1. Run `git push origin master`
+1. Run `git push origin main`
 1. Look at the "commits" page on your fork on GitHub to see your new commits.
 
 ### Adding your changes to the canonical repository
@@ -434,7 +434,7 @@ Welcome to the end of the hands on tutorial with Git and GitHub! You have now be
 1. Click "Create pull request".
 1. Add a title and description. Include your course contact as a reviewer.
 1. The reviewer will merge the changes.
-1. Close the loop by pulling down the changes from upstream to your local repo - `git pull upstream master`
+1. Close the loop by pulling down the changes from upstream to your local repo - `git pull upstream main`
 
 ### Handling merge conflicts
 
@@ -454,7 +454,7 @@ There is a lot more Git that can be learned, but the above are the basics that w
 * much more!
 
 ----
-**Action:** Once you are done reading this, return to the canonical repo's main GitHub page `https://github.com/padilla410/ds-gitflows-static-[username]`.
+**Action:** Once you are done reading this, return to the canonical repo's main GitHub page `https://github.com/SPU-WR/ds-gitflows-static-[username]`.
 
 /details>
 
